@@ -19,17 +19,16 @@ export class AppProductComponent implements OnInit {
 
 }
 
-onSaveProduct(value: any){
-  console.log(value)
-  this.service.save(value).subscribe(result=>{
-   
-    this.route.navigate(["/list"])
+onSaveProduct(data: any){
+  // console.log(data)
+  this.service.save(data).subscribe(res=>{
+    this.route.navigateByUrl("");
 
-   
-
-  },error=>{alert("impossible d'enregistrer")})
+   },error=>{alert("impossible d'enregistrer")})
 
 }
+
+
 
 
 }

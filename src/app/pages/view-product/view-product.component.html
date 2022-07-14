@@ -1,17 +1,39 @@
-<p>Liste des produits</p>
-<div class="container">
 
-    <div class="row">
-        <mat-card class="example-card" *ngFor="let p of products">
-            <mat-card-title-group>
-              <mat-card-title>{{p.name}}</mat-card-title>
-              <mat-card-subtitle>{{p.description}}</mat-card-subtitle>
-             
-            </mat-card-title-group>
-            <mat-card-content>
-                {{p.prix}}
-            </mat-card-content>
-            <button class="btn btn-danger" type="submit"(click)="onDelete(p)">delete</button>
-          </mat-card> 
-    </div>
-</div>
+
+
+
+<div class="container">
+    <h2> List des Produits</h2>
+        
+    <table class="table">
+      <thead>
+        <tr>
+          <th>product id</th>
+          <th>product name</th>
+          <th>product Price</th>
+          <th>product description</th>
+          <th>actions</th>
+       
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of products">
+          <td>{{p.id}}</td>
+          <td>{{p.name}}</td>
+          <td>{{p.prix}}</td>
+          <td>{{p.description}}</td>
+          <td>
+            <button type="button" class="btn btn-primary">Edit</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-info">View</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger" (click)="onDelete(p)">Delete</button>
+          </td>
+        </tr>
+       
+      </tbody>
+    </table>
+    <button routerLink="/add" type="button" class="btn btn-success">Ajouter un produit</button>
+  </div>
+
+  
+  
+

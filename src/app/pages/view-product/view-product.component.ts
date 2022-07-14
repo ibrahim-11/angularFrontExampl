@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductModel } from 'src/app/model/product.model';
 import { ProductServiceService } from 'src/app/service/product-service.service';
 
@@ -9,17 +10,22 @@ import { ProductServiceService } from 'src/app/service/product-service.service';
 })
 export class ViewProductComponent implements OnInit {
   products!: ProductModel[] ;
-  constructor(private service: ProductServiceService) { }
+  constructor(private service: ProductServiceService,private route:Router) { }
 
   ngOnInit(): void {
     this.service.findAll()
     .subscribe(data => {this.products = data},
-      err => console.log(err))
+      err => {
+        console.log(err);
+      })
   }
 
+
   onDelete(produit:ProductModel){
+   
     this.service.delete(produit).subscribe(data=>{
-      alert(JSON.stringify(data))
+      this.products = this.products.filter((item => item.id !==produit.id));
+  // this.route.navigateByUrl("/")
     },err => console.log(err))
 
   }
