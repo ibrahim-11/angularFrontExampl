@@ -1,0 +1,17 @@
+<p>Liste des produits</p>
+<div class="container">
+
+    <div class="row">
+        <mat-card class="example-card" *ngFor="let p of products">
+            <mat-card-title-group>
+              <mat-card-title>{{p.name}}</mat-card-title>
+              <mat-card-subtitle>{{p.description}}</mat-card-subtitle>
+             
+            </mat-card-title-group>
+            <mat-card-content>
+                {{p.prix}}
+            </mat-card-content>
+            <button class="btn btn-danger" type="submit"(click)="onDelete(p)">delete</button>
+          </mat-card> 
+    </div>
+</div>

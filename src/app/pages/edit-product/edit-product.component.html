@@ -1,0 +1,18 @@
+<p>edit-product works!</p>
+
+<form  [formGroup]="product" (ngSubmit)="onSubmit()">
+    <label>
+        Nom:
+        <input type="text" formControlName="name">
+    </label>
+    <label>
+        description:
+        <input type="text" formControlName="desc">
+    </label>
+    <label>
+        prix:
+        <input type="text" formControlName="price">
+    </label>
+    <button type="submit">Ajouter</button>
+</form>
+

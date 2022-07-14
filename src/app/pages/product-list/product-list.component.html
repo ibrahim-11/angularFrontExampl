@@ -1,0 +1,36 @@
+<p>product-list works!</p>
+
+<div class="container">
+    <h2>Product List</h2>
+    <p>Use action to perform crud operations</p>            
+    <table class="table">
+      <thead>
+        <tr>
+          <th>product id</th>
+          <th>product name</th>
+          <th>product Price</th>
+          <th>product description</th>
+          <th>actions</th>
+       
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Table</td>
+          <td>2000</td>
+          <td>table have 4 legs</td>
+          <td>
+            <button type="button" class="btn btn-primary">Edit</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-info">View</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+       
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-success">Add</button>
+  </div>
+  <button type="button" class="btn btn-success" (click)="showData()">Add</button>
+  
+  
