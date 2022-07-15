@@ -1,7 +1,8 @@
 export class ProductModel{
+    _links: any;
     constructor(
       public id:number,
-     public  name:string,
+      public  nom:string,
       public  description:string,
       public  prix:number
     ){

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductModel } from 'src/app/model/product.model';
 import { ProductServiceService } from 'src/app/service/product-service.service';
 
@@ -9,33 +10,38 @@ import { ProductServiceService } from 'src/app/service/product-service.service';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit {
-  product: FormGroup = new FormGroup({});
-
-  constructor(private formBuilder : FormBuilder,private service: ProductServiceService) { }
+   public id!:number;
+   curentproduct!:ProductModel;
+   curentid!:number
+ 
+  constructor(private service: ProductServiceService,private route:Router,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.product=this.formBuilder.group({
-      name:['',Validators.required],
-      desc:['',Validators.required],
-      price:['',Validators.required]
-  })
+      this.id = (this.activatedRoute.snapshot.params["id"]);
+      console.log(this.id);
+      this.service.findOne(this.id).subscribe(data => {
+        this.curentproduct=data;
+        this.curentid = data.id
+      },
+        error=>console.log(error))
+
   }
 
-  onSubmit(): void {
+  // onUpdateProduct(p:ProductModel){
+  //  this.service.update(p,this.id).subscribe(data => {
+  //   this.route.navigateByUrl("")
+  //  },err=>alert("update impossible"));
 
+  // }
+  onUpdateProduct(p:ProductModel){
+    p.id = this.curentid;
 
+    this.service.update(p,this.id).subscribe(data => {
+         this.route.navigateByUrl("")
+       },err=>alert("update impossible"));
 
-
-    // alert(JSON.stringify(this.product.value))
-    this.service.save(this.product.value)
-    .subscribe({
-      next:(result) => {
-        alert("product added")
-      },
-      error:(err) => {
-        alert("erroe")
-      }
-    })
   }
 
 }
+
+

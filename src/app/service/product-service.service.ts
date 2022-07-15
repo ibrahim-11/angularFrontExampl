@@ -17,6 +17,10 @@ export class ProductServiceService {
 
     return this.http.get<ProductModel[]>("http://localhost:8080/products")
   }
+  findOne(id :number):Observable<ProductModel>{
+
+    return this.http.get<ProductModel>("http://localhost:8080/products/"+id)
+  }
   public save(product: ProductModel):Observable<ProductModel>{
 
     return this.http.post<ProductModel>("http://localhost:8080/products",product);
@@ -24,6 +28,10 @@ export class ProductServiceService {
   public delete(product: ProductModel):Observable<ProductModel>{
 
     return this.http.delete<ProductModel>("http://localhost:8080/products"+"/"+product.id);
+  }
+  public update(product: ProductModel,id:number):Observable<ProductModel>{
+
+    return this.http.post<ProductModel>("http://localhost:8080/products/"+id,product);
   }
 
   // public save(utilisateur:Utilisateur){

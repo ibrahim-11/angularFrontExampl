@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductModel } from 'src/app/model/product.model';
 import { ProductServiceService } from 'src/app/service/product-service.service';
@@ -9,6 +9,7 @@ import { ProductServiceService } from 'src/app/service/product-service.service';
   styleUrls: ['./view-product.component.css']
 })
 export class ViewProductComponent implements OnInit {
+
   products!: ProductModel[] ;
   constructor(private service: ProductServiceService,private route:Router) { }
 
@@ -28,6 +29,12 @@ export class ViewProductComponent implements OnInit {
   // this.route.navigateByUrl("/")
     },err => console.log(err))
 
+  }
+
+  onEditProduct(p :ProductModel){
+   
+   
+    this.route.navigateByUrl("edit/"+(p.id))
   }
 
 }

@@ -19,11 +19,11 @@
       <tbody>
         <tr *ngFor="let p of products">
           <td>{{p.id}}</td>
-          <td>{{p.name}}</td>
+          <td>{{p.nom}}</td>
           <td>{{p.prix}}</td>
           <td>{{p.description}}</td>
           <td>
-            <button type="button" class="btn btn-primary">Edit</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary" (click)="onEditProduct(p)">Edit</button>&nbsp;&nbsp;
             <button type="button" class="btn btn-info">View</button>&nbsp;&nbsp;
             <button type="button" class="btn btn-danger" (click)="onDelete(p)">Delete</button>
           </td>
@@ -33,6 +33,8 @@
     </table>
     <button routerLink="/add" type="button" class="btn btn-success">Ajouter un produit</button>
   </div>
+
+
 
   
   
