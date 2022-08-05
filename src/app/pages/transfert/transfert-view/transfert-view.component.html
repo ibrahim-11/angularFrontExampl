@@ -1,0 +1,39 @@
+<p>transfert-view works!</p>
+
+<div class="container">
+    <h2> List des Produits</h2>
+        
+    <table class="table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Emeteur </th>
+          <th>Recepteur</th>
+          <th>Montant</th>
+          <th>Frais</th>
+          <th>Status</th>
+          <th>actions</th>
+       
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of transferts">
+          <td>{{t.id}}</td>
+          <td>{{t.nomEnvoie}}</td>
+          <td>{{t.nomRecepteur}}</td>
+          <td>{{t.montant}}</td>
+          <td>{{t.frais}}</td>
+          <td>{{t.status}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="onEditProduct(t)">Edit</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-info" (click)="detail(t)">View</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger" (click)="onDelete(t)">Delete</button>
+          </td>
+        </tr>
+       
+      </tbody>
+    </table>
+    <button routerLink="/addTransfert" type="button" class="btn btn-success">Ajouter un produit</button>
+  </div>
+
+

@@ -16,6 +16,10 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { ViewProductComponent } from './pages/view-product/view-product.component';
 import { EditProductComponent } from './pages/edit-product/edit-product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { TransfertViewComponent } from './pages/transfert/transfert-view/transfert-view.component';
+import { TransfertEditComponent } from './pages/transfert/transfert-edit/transfert-edit.component';
+import { TransfertUpdateComponent } from './pages/transfert/transfert-update/transfert-update.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppProductComponent,
     ProductListComponent,
     ViewProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    ProductDetailsComponent,
+    TransfertViewComponent,
+    TransfertEditComponent,
+    TransfertUpdateComponent
   ],
   imports: [
     BrowserModule,

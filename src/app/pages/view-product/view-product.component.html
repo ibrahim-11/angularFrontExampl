@@ -24,7 +24,7 @@
           <td>{{p.description}}</td>
           <td>
             <button type="button" class="btn btn-primary" (click)="onEditProduct(p)">Edit</button>&nbsp;&nbsp;
-            <button type="button" class="btn btn-info">View</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-info" (click)="detail(p)">View</button>&nbsp;&nbsp;
             <button type="button" class="btn btn-danger" (click)="onDelete(p)">Delete</button>
           </td>
         </tr>
@@ -32,6 +32,7 @@
       </tbody>
     </table>
     <button routerLink="/add" type="button" class="btn btn-success">Ajouter un produit</button>
+    <button routerLink="/transfert" type="button" class="btn btn-success">Transfert</button>
   </div>
 
 

@@ -36,5 +36,10 @@ export class ViewProductComponent implements OnInit {
    
     this.route.navigateByUrl("edit/"+(p.id))
   }
+  detail(p :ProductModel){
+   
+   
+    this.route.navigateByUrl("detail/"+(p.id))
+  }
 
 }
